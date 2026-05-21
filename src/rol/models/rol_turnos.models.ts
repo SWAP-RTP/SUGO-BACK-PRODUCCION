@@ -1,0 +1,86 @@
+import { DataTypes, Model } from "sequelize";
+import sequelize from "../../General/DB/db";
+import { RolTurnos } from "../interfaces/rol_turnos.interfaces";
+
+export class Turnos extends Model<RolTurnos> { }
+
+Turnos.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    id_archivo: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    nombre_ruta: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    economico: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    sistema: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    primer_t: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    segundo_t: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    tercer_t: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    lunes: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    martes: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    miercoles: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    jueves: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    viernes: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    sabado: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    domingo: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    createdat: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedat: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+  },
+  {
+    sequelize,
+    tableName: "rol_turnos",
+    timestamps: false,
+  },
+);
